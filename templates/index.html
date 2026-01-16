@@ -6,11 +6,16 @@
 </head>
 <body>
   <form method="post" action = "/">
-    <input type="number" name="age" placeholder="Enter your age" value = "{{ age }}">
+    <input type="file" name="pdf" id="pdf">
     <button type="submit">Submit</button>
   </form>
-  {% if age is not none %}
-    <p>Your age is: {{ age }}</p>
-  {% endif %}
 </body>
 </html>
+
+
+<!--
+dynamic output sample code 
+{% if age is not none %}
+  <p>Your age is: {{ age }}</p>
+{% endif %} 
+-->

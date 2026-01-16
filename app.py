@@ -3,9 +3,10 @@ app = Flask(__name__)
 # decorator calls age() when / is called
 @app.route('/',methods=["GET","POST"])
 def age():
-    age = None
     if request.method == "POST":
-        age = request.form["age"]
-    return render_template("index.html",age=age)
+        file = request.files["pdf"]
+        return "file successfully recieved"
+    else:
+        return "error occured"
 if __name__ == "__main__":
     app.run(debug=True)
