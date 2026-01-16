@@ -15,8 +15,8 @@ Follow these steps to get the project running locally:
 2. **Create a Python virtual environment**
     ```sh
     python3 -m venv venv
-    source venv/bin/activate   
-    # on Windows: venv\Scripts\activate
+    source venv/bin/activate  # macOS/Linux
+    venv\Scripts\activate     # Windows
     ```
 3. **Install dependencies**
     ```sh
