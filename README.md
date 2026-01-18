@@ -26,7 +26,7 @@ Follow these steps to get the project running locally:
     ```sh
     python app.py
     ```
-5. **Access the Web Application:** Open your browser and navigate to ```http://localhost:5000.```
+5. **Access the Web Application:** Open your browser and navigate to ```http://localhost:5000```
 ## License
 
 This project is licensed under the MIT License.
