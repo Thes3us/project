@@ -2,16 +2,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>project</title>
+  <meta charset="UTF-8">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CV Checker</title>
 </head>
 <body>
-  <form method="post" action="/" enctype="multipart/form-data">
-    <input type="file" name="pdf" id="pdf">
-    <button type="submit">Submit</button>
-    {% if message %}
-      <p>{{ message }}</p>
-    {% endif %} 
-  </form>
+  <button id="themeswitch">
+    
+
+  </button>
+  <div class="text">
+        <h1>Let us grade your CV!</h1>
+        <p>Upload your CV and leave everything else to us.</p>
+    </div>
+
+    <div class="Upload">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <div>
+            <label for="input">Upload PDF!!</label>
+            <input type="file" name="pdf" id="pdf" accept=".pdf" required>
+            </div>
+            <br>
+            <input type="submit">
+
+        </form>
+    </div>
 </body>
 </html>
 

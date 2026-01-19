@@ -14,14 +14,14 @@ def receive():
 
         for page in doc:
             text=page.get_text()   #converts byte to human readable stuff
-            print(text)
+            print(text.strip(),end=" ")
         #sends user to a new page with parameter "success" to avoid looping bugs
         return redirect(url_for("receive", status="success")) 
     
     status = request.args.get("status") #receives status from URL 
 
     if status == "success":
-        message = "file successfully received"
+        message = "File successfully received"
     else:
         #handles message when website is visited without submit
         message = None
