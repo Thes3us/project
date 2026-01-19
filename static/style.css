@@ -75,14 +75,14 @@ label {
 
 input[type="file"] {
     font-size: 0.9rem;
-    color: #ffffff;
+    color: var(--txt-col);
 }
 
 /* Button Styling */
 input[type="submit"] {
     width: 100%;
     background-color: #2563eb;
-    color: var(--bg-col);
+    color: white;
     padding: 12px;
     border: none;
     border-radius: 8px;
@@ -98,4 +98,30 @@ input[type="submit"]:hover {
 
 input[type="submit"]:active {
     transform: scale(0.98);
+}
+#themeswitch{
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--txt-col);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    left: 20px;
+
+}
+
+#themeswitch svg:last-child{
+    display: none;
+}
+
+.darkmode #themeswitch svg:first-child{
+    display: none;
+}
+
+.darkmode #themeswitch svg:last-child{
+    display: block;
 }
