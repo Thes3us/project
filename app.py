@@ -5,18 +5,14 @@ app = Flask(__name__)
 @app.route('/',methods=["GET","POST"])
 def receive():
     #handle submit button
-    message = None
+    message = "sample"
     if request.method == "POST":
         file = request.files["pdf"]   #receives pdf in bytestream
-        hasContent=pdf_reader.send(file) #sends pdf to send() in pdf_reader.py. returns True if file is not None
-        if hasContent:   #if the pdf has content, proceed with status success, else display message accordingly
-            #sends user to a new page with parameter "success" to avoid looping bugs
-            'return redirect(url_for("receive", status="success"))'
+        content, hasContent=pdf_reader.send(file) #sends pdf to send() in pdf_reader.py. 
+        if hasContent:   #if the pdf has content, send content back to html
+            return render_template("index.html", message = content)
         else:
             message = "The pdf sent is empty, please send a pdf with content"
-    status = request.args.get("status") #receives status from URL 
-    if status == "success":
-        message = "file successfully received"
     return render_template("index.html", message = message)
 if __name__ == "__main__":
     app.run(debug=True) #test
