@@ -9,8 +9,8 @@ Follow these steps to get the project running locally:
 
 1. **Clone the repository**
     ```sh
-    git clone https://github.com/Thes3us/project.git
-    cd project
+    git clone https://github.com/Thes3us/Rescorer.git
+    cd Rescorer
     ```
 2. **Create a Python virtual environment**
     ```sh
