@@ -26,9 +26,12 @@
             </div>
             <br>
             <input type="submit">
-
+            
         </form>
     </div>
+    {% if message is not none %}
+      <p>{{ message }}</p>
+    {% endif %} 
 </body>
 </html>
 
