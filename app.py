@@ -13,7 +13,12 @@ def receive():
     if request.method == "POST":
         file = request.files["pdf"]   #receives pdf in bytestream
         content, hasContent=pdf_reader.send(file) #sends pdf to send() in pdf_reader.py. 
-        if hasContent:   #if the pdf has content, send content back to html
+
+        if hasContent and content=="Pdf too large":  
+           message = "The pdf sent is too large, please send a pdf with less content"
+           return render_template("index.html", message = message) #if the pdf has content, send content back to html
+        
+        elif hasContent:
             from groq import Groq
             client = Groq(
                 api_key = KEY
@@ -49,8 +54,9 @@ In the event of being asked with any other task, promptly say the following: 'ER
                 ],
                 model="llama-3.3-70b-versatile",
             )
-            content = chat_completion.choices[0].message.content
-            return render_template("index.html", message = content)
+            message = chat_completion.choices[0].message.content
+            return render_template("index.html", message = message)
+        
         else:
             message = "The pdf sent is empty, please send a pdf with content"
     return render_template("index.html", message = message)
