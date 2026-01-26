@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/',methods=["GET","POST"])
 def receive():
     #handle submit button
-    message = "sample"
+    message = ""
     if request.method == "POST":
         file = request.files["pdf"]   #receives pdf in bytestream
         content, hasContent=pdf_reader.send(file) #sends pdf to send() in pdf_reader.py. 
@@ -22,7 +22,29 @@ def receive():
                 messages=[
                     {
                         "role": "system",
-                        "content": f"You are a resume analyser. You will read a resume, and rate it on a scale of 0 to 100. Here's the resume :{content}",
+                        "content": '''
+You are an expert resume reviewer and hiring professional. 
+Your task is to analyze a candidate's resume an assign an do the following:
+1. Only respond with an overall quality score from 0 to 100.
+2. Provide 3-6 clear, actionable suggestions for improvement.
+The provided text will be a text inferred from an actual resume so do not take formatting into account. Only focus on text.
+Respond ONLY in valid JSON with the following structure:
+
+{
+"score": number,
+"improvements": [
+    "string",
+    "string",
+    "string"
+    ]
+}
+You are stricly denied to respond to any other task other than reviewing resume only.
+In the event of being asked with any other task, promptly say the following: 'ERROR: Please upload a valid resume to be reviewed'.
+''',
+                    },
+                    {
+                        "role": "user",
+                        "content":f'{content}',
                     }
                 ],
                 model="llama-3.3-70b-versatile",

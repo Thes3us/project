@@ -12,7 +12,7 @@ def send(file):
     doc = pymupdf.open(stream=byte_form,filetype="pdf")     #opens the file from the byte form
     content = []
     for page in doc:
-        text=page.get_text()   #converts byte to human readable stuff
+        text=page.get_text().replace('\n','')   #converts byte to human readable stuff
         content.append(text)   #append each page into text
     print(content)
     return(content, True) # return content and hascontent

@@ -26,14 +26,15 @@ body {
 }
 
 /* Card Container */
-.text .upload {
+.text{
+    align-items: center;
+    margin:auto;
+}
+.upload {
     background: var(--bg-col);
-    padding: 2.5rem;
     border-radius: 16px;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
+    margin: auto;
 }
 
 h1 {
@@ -80,12 +81,10 @@ input[type="file"] {
 
 /* Button Styling */
 input[type="submit"] {
-    width: 100%;
+    width: 100px;
     background-color: #2563eb;
     color: white;
     padding: 12px;
-    border: none;
-    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -124,4 +123,15 @@ input[type="submit"]:active {
 
 .darkmode #themeswitch svg:last-child{
     display: block;
+}
+.flex{
+    padding:100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.response{
+    margin: 50px;
+    padding: 20px;
+    background-color: rgb(32, 32, 32);
 }
